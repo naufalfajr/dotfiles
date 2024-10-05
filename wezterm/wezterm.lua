@@ -20,11 +20,11 @@ end
 
 -- Settings
 -- config.default_prog = { fish_path, "-l" }
-config.initial_cols = 100
+config.initial_cols = 96
 config.initial_rows = 24
 config.color_scheme = "Tokyo Night"
 config.font = wezterm.font_with_fallback({
-	{ family = "MesloLGS Nerd Font Mono" },
+	{ family = "MesloLGS NF", scale = 0.8 },
 	{ family = "Iosevka Nerd Font", scale = 1, weight = "Medium" },
 	{ family = "FantasqueSansM Nerd Font", scale = 1.3 },
 })
@@ -65,7 +65,12 @@ config.keys = {
 		mods = "LEADER",
 		action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }),
 	},
-
+	-- Fullscreen Mode
+	{
+		key = "f",
+		mods = "LEADER",
+		action = act.ToggleFullScreen,
+	},
 	-- Tab keybindings
 	{ key = "t", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
 	{ key = "[", mods = "LEADER", action = act.ActivateTabRelative(-1) },
